@@ -1,9 +1,10 @@
+import logging
+
 # -*- coding: utf-8 -*-
 """
 API endpoints for the analysis service.
 """
 
-import logging
 from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile, status
 from fastapi.concurrency import run_in_threadpool
 
@@ -23,6 +24,7 @@ async def analyze_resume(
     """
     Analyzes a resume against a job description.
     """
+    logging.info("analyze_resume endpoint hit")
     if not resume.filename:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
@@ -30,6 +32,7 @@ async def analyze_resume(
         )
 
     try:
+        logging.info("Starting resume analysis")
         resume_content = await resume.read()
         resume_text = extract_text(resume_content, resume.filename)
         if not resume_text:
