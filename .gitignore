@@ -12,4 +12,5 @@ venv/
 # Temporary file
 
 GEMINI.md
+!static/
              
