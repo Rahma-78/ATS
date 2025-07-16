@@ -38,7 +38,7 @@ app.add_middleware(
 app.include_router(routers.router, prefix=settings.API_V1_STR, tags=["Analysis"])
 
 # --- Static Files ---
-app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
 # --- Root Endpoint ---
 @app.get("/")
