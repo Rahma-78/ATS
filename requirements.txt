@@ -6,4 +6,5 @@ langchain-groq
 
 python-multipart
 pydantic
+pydantic_settings
 pypdf
