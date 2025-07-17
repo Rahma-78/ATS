@@ -46,7 +46,7 @@ async def root():
     return FileResponse("app/static/index.html")
 
 # --- Analyze Endpoint ---
-@app.post("/api/v1/analyze/", response_model=AnalysisResult)
+@app.post("/analyze/", response_model=AnalysisResult)
 async def analyze_resume(
     job_description: str = Form(...),
     resume: UploadFile = File(...),
