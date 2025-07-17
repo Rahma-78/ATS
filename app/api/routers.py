@@ -15,7 +15,7 @@ from app.utils.file_utils import extract_text
 
 router = APIRouter(redirect_slashes=False)
 
-@router.post("/analyze", response_model=AnalysisResult)
+@router.post("/api/v1/analyze/", response_model=AnalysisResult)
 async def analyze_resume(
     job_description: str = Form(...),
     resume: UploadFile = File(...),
