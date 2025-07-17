@@ -1,13 +1,10 @@
-# -*- coding: utf-8 -*-
-"""
-Main application file for the FastAPI ATS.
-"""
-
 import logging
+import os
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 
 from app.api import routers
 from app.core.config import settings
@@ -19,10 +16,12 @@ logging.basicConfig(
 )
 
 # --- FastAPI App Initialization ---
+root_path = os.environ.get("ROOT_PATH", "")
 app = FastAPI(
     title=settings.PROJECT_NAME,
     description=settings.PROJECT_DESCRIPTION,
     version=settings.API_VERSION,
+    root_path=root_path,
 )
 
 # --- Middleware ---
@@ -39,8 +38,6 @@ app.include_router(routers.router, prefix=settings.API_V1_STR, tags=["Analysis"]
 
 # --- Static Files ---
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
-
-from fastapi.responses import FileResponse
 
 # --- Root Endpoint ---
 @app.get("/")
