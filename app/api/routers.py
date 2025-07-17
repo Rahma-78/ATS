@@ -13,7 +13,7 @@ from app.api.schemas import AnalysisResult
 from app.services.analysis_service import ATSAnalyzer
 from app.utils.file_utils import extract_text
 
-router = APIRouter()
+router = APIRouter(redirect_slashes=False)
 
 @router.post("/analyze", response_model=AnalysisResult)
 async def analyze_resume(
