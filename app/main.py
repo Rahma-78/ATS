@@ -40,7 +40,9 @@ app.include_router(routers.router, prefix=settings.API_V1_STR, tags=["Analysis"]
 # --- Static Files ---
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
+from fastapi.responses import FileResponse
+
 # --- Root Endpoint ---
 @app.get("/")
 async def root():
-    return {"message": "Welcome to the ATS Resume Analyzer API"}
+    return FileResponse("app/static/index.html")
