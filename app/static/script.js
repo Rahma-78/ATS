@@ -1,3 +1,4 @@
+alert("JavaScript is running!");
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("analysis-form");
     const resultsContainer = document.getElementById("results-container");
@@ -46,8 +47,15 @@ const matchPercentageHeading = document.createElement("h3");
 matchPercentageHeading.textContent = "Match Percentage";
 const matchPercentageValue = document.createElement("p");
 matchPercentageValue.textContent = `${results.match_percentage}%`;
-matchPercentageDiv.appendChild(matchPercentageHeading);
-matchPercentageDiv.appendChild(matchPercentageValue);
+    matchPercentageValue.style.fontSize = "3em";
+    matchPercentageValue.style.fontWeight = "bold";
+    matchPercentageValue.style.color = "#4CAF50";
+    matchPercentageValue.style.backgroundColor = "#e8f5e9";
+    matchPercentageValue.style.padding = "10px";
+    matchPercentageValue.style.borderRadius = "5px";
+    matchPercentageValue.style.display = "inline-block";
+    matchPercentageDiv.appendChild(matchPercentageHeading);
+    matchPercentageDiv.appendChild(matchPercentageValue);
 analysisResultsDiv.appendChild(matchPercentageDiv);
 
 // Strengths
@@ -60,7 +68,9 @@ if (results.strengths && Array.isArray(results.strengths)) {
     results.strengths.forEach(strength => {
         const strengthItem = document.createElement("li");
         strengthItem.textContent = strength;
-        strengthsList.appendChild(strengthItem);
+            strengthItem.style.listStyleType = "none";
+            strengthItem.style.marginLeft = "0";
+            strengthItem.style.paddingLeft = "0";
     });
 } else {
     const noStrengthsItem = document.createElement("li");
@@ -81,7 +91,9 @@ if (results.weaknesses && Array.isArray(results.weaknesses)) {
     results.weaknesses.forEach(weakness => {
         const weaknessItem = document.createElement("li");
         weaknessItem.textContent = weakness;
-        weaknessesList.appendChild(weaknessItem);
+            weaknessItem.style.listStyleType = "none";
+            weaknessItem.style.marginLeft = "0";
+            weaknessItem.style.paddingLeft = "0";
     });
 } else {
     const noWeaknessesItem = document.createElement("li");
@@ -99,6 +111,7 @@ const candidateSummaryHeading = document.createElement("h3");
 candidateSummaryHeading.textContent = "Candidate Summary";
 const candidateSummaryText = document.createElement("p");
 candidateSummaryText.textContent = results.candidate_summary;
+    candidateSummaryText.style.boxShadow = "0 2px 5px rgba(0, 0, 0, 0.1)";
 candidateSummaryDiv.appendChild(candidateSummaryHeading);
 candidateSummaryDiv.appendChild(candidateSummaryText);
 analysisResultsDiv.appendChild(candidateSummaryDiv);
@@ -110,6 +123,7 @@ const recommendationsHeading = document.createElement("h3");
 recommendationsHeading.textContent = "Recommendations";
 const recommendationsText = document.createElement("p");
 recommendationsText.textContent = results.recommendations;
+    recommendationsText.style.boxShadow = "0 2px 5px rgba(0, 0, 0, 0.1)";
 recommendationsDiv.appendChild(recommendationsHeading);
 recommendationsDiv.appendChild(recommendationsText);
 analysisResultsDiv.appendChild(recommendationsDiv);
