@@ -20,10 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             console.log("Sending request to /api/v1/analyze");
-            const response = await fetch("/api/v1/analyze/", {
-                method: "POST",
-                body: formData,
-            });
+                        console.log("Form data:", formData);
+                        const response = await fetch("/api/v1/analyze/", {
+                            method: "POST",
+                            body: formData,
+                        });
 
             if (!response.ok) {
                 const errorData = await response.json().catch(() => null);
