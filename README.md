@@ -1,13 +1,13 @@
-:---:
-title: Job Application Tool
-emoji: 🎯
-colorFrom: purple
-colorTo: orange
+---
+license: apache-2.0
+title: ATS
 sdk: docker
-sdk_version: "latest"
-app_file: app.py
+emoji: 🐠
+colorFrom: blue
+colorTo: gray
 pinned: false
-:---:
+---
+
 
 # ATS Resume Analyzer
 
@@ -30,5 +30,3 @@ This is a simple Applicant Tracking System (ATS) that analyzes a resume against 
 3.  **Access the application:**
 
     Open your web browser and navigate to `http://localhost:7860`.
-
-    
