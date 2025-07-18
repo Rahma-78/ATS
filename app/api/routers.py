@@ -41,7 +41,7 @@ async def analyze_resume(
                 detail="Could not extract text from the resume. Please ensure it is not empty or image-based.",
             )
 
-        analysis_result = await run_in_threadpool(analyzer.get_structured_analysis, resume_text, job_description)
+        analysis_result = await run_in_threadpool(analyzer.get_structured_analysis, resume_text, job_description.encode('utf-8').decode('utf-8'))
         if not analysis_result:
             raise HTTPException(
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,

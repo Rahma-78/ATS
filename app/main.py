@@ -85,7 +85,7 @@ async def analyze_resume(
             )
 
         analysis_result = await run_in_threadpool(
-            analyzer.get_structured_analysis, resume_text, job_description
+            analyzer.get_structured_analysis, resume_text, job_description.encode('utf-8').decode('utf-8')
         )
         if not analysis_result:
             raise HTTPException(
