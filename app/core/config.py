@@ -14,7 +14,7 @@ class Settings(BaseSettings):
     Defines application settings.
     """
     PROJECT_NAME: str = "ATS Resume Analyzer"
-    PROJECT_DESCRIPTION: str = "An AI-powered tool to analyze resumes against job descriptions."
+    PROJECT_DESCRIPTION: str = "A powerful tool to analyze resumes against job descriptions, providing a detailed analysis of a candidate's suitability for a role."
     API_VERSION: str = "1.0.0"
     API_V1_STR: str = "/api/v1"
 

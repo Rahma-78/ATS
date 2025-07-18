@@ -41,22 +41,32 @@ class Recommendations(BaseModel):
 
 class AnalysisResult(BaseModel):
     """
-    Defines the structured output for the resume analysis.
+    Represents the structured analysis of a resume against a job description.
     """
-    candidate_summary: str = Field(
-        description="A 2-3 sentence summary of the candidate's profile and overall suitability for the role, based on the final, penalized score."
-    )
     match_percentage: int = Field(
-        description="A realistic, final match percentage, rounded to the nearest whole number. This score must be calculated after applying significant penalties for any missing critical requirements (e.g., required skills, years of experience)."
+        ..., 
+        description="The calculated match score between the resume and the job description.",
+        example=85
     )
-    strengths: Strengths = Field(
-        description="A detailed breakdown of the candidate's strengths."
+    strengths: List[str] = Field(
+        ..., 
+        description="A list of key strengths and qualifications identified in the resume.",
+        example=["5+ years of experience in Python", "Experience with FastAPI and Pydantic"]
     )
-    weaknesses: Weaknesses = Field(
-        description="A detailed breakdown of the candidate's weaknesses and skill gaps."
+    weaknesses: List[str] = Field(
+        ..., 
+        description="A list of key weaknesses or gaps identified in the resume.",
+        example=["No experience with cloud platforms (AWS, GCP, Azure)"]
     )
-    recommendations: Recommendations = Field(
-        description="Actionable recommendations for the candidate to improve their qualifications for the role."
+    candidate_summary: str = Field(
+        ..., 
+        description="A brief summary of the candidate’s overall fit for the role.",
+        example="The candidate is a strong fit for the role, with extensive experience in Python and web development."
+    )
+    recommendations: str = Field(
+        ..., 
+        description="Actionable recommendations for the candidate to improve their profile.",
+        example="The candidate should consider gaining experience with cloud platforms to be a more competitive applicant."
     )
 
 class AnalysisRequest(BaseModel):

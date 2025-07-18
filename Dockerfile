@@ -7,7 +7,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# Expose the application port (default is 7860)
+# Expo>se the application port (default is 7860)
 EXPOSE 7860
 
 HEALTHCHECK --interval=30s --timeout=10s --retries=3 CMD curl -f http://localhost:7860/static/index.html || exit 1

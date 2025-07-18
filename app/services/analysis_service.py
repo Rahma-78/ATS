@@ -44,7 +44,6 @@ class ATSAnalyzer:
         text = re.sub(r'[^\x00-\x7F]+', '', text)  # Remove non-ASCII characters
         return text.strip()
 
-    @lru_cache(maxsize=128)
     def get_structured_analysis(
         self, resume_text: str, job_description: str
     ) -> Optional[AnalysisResult]:

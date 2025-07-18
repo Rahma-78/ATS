@@ -1,11 +1,21 @@
 import logging
 import os
 
-from fastapi import FastAPI, Depends, File, Form, HTTPException, UploadFile, status
+from fastapi import (
+    FastAPI,
+    Depends,
+    File,
+    Form,
+    HTTPException,
+    UploadFile,
+    status,
+    Request,
+)
 from fastapi.concurrency import run_in_threadpool
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
 
 from app.dependencies import get_analyzer
 from app.api.schemas import AnalysisResult
@@ -37,16 +47,19 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# --- Static Files ---
+# --- Static Files & Templates ---
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
+templates = Jinja2Templates(directory="app/static")
+
 
 # --- Root Endpoint ---
-@app.get("/")
-async def root():
-    return FileResponse("app/static/index.html")
+@app.get("/", response_class=HTMLResponse)
+async def root(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
+
 
 # --- Analyze Endpoint ---
-@app.post("/api/v1/analyze/", response_model=AnalysisResult)
+@app.post("/api/v1/analyze", response_model=AnalysisResult)
 async def analyze_resume(
     job_description: str = Form(...),
     resume: UploadFile = File(...),
@@ -58,8 +71,7 @@ async def analyze_resume(
     logging.info("analyze_resume endpoint hit")
     if not resume.filename:
         raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="No resume file provided."
+            status_code=status.HTTP_400_BAD_REQUEST, detail="No resume file provided."
         )
 
     try:
@@ -72,7 +84,9 @@ async def analyze_resume(
                 detail="Could not extract text from the resume. Please ensure it is not empty or image-based.",
             )
 
-        analysis_result = await run_in_threadpool(analyzer.get_structured_analysis, resume_text, job_description)
+        analysis_result = await run_in_threadpool(
+            analyzer.get_structured_analysis, resume_text, job_description
+        )
         if not analysis_result:
             raise HTTPException(
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,

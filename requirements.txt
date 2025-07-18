@@ -3,7 +3,7 @@ uvicorn
 python-dotenv
 langchain
 langchain-groq
-
+Jinja2
 python-multipart
 pydantic
 pydantic_settings
