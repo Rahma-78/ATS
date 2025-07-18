@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1>ATS Resume Analyzer</h1>
-        <form id="analysis-form">
+        <form id="analysis-form" action="/api/v1/analyze" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="job-description">Job Description</label>
                 <textarea id="job-description" name="job_description" rows="10" required></textarea>
