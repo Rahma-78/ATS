@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
             console.log("Sending request to /api/v1/analyze");
-            const response = await fetch("/api/v1/analyze", {
+            const response = await fetch("/spaces/Rahma07/ATS/api/v1/analyze", {
                 method: "POST",
                 body: formData,
             });
