@@ -1,3 +1,11 @@
+:---:
+title: Job Application Tool
+sdk: docker
+sdk_version: "latest"
+app_file: app.py
+pinned: false
+:---:
+
 # ATS Resume Analyzer
 
 This is a simple Applicant Tracking System (ATS) that analyzes a resume against a job description.
