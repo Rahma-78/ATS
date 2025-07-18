@@ -96,7 +96,7 @@ async def analyze_resume(
         return analysis_result
 
     except Exception as e:
-        logging.error(f"An unexpected error occurred: {e}")
+        logging.exception("An unexpected error occurred:")
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="An unexpected error occurred.",

@@ -9,13 +9,17 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
 
         const formData = new FormData(form);
+        console.log("Form data:", formData);
         resultsContainer.classList.add("hidden");
         resultsDiv.innerHTML = "";
-        resultsDiv.appendChild(spinner);
+        const newSpinner = document.createElement("div");
+        newSpinner.className = "spinner";
+        resultsDiv.appendChild(newSpinner);
         resultsContainer.classList.remove("hidden");
 
         try {
-            const response = await fetch("api/v1/analyze", {
+            console.log("Sending request to /api/v1/analyze");
+            const response = await fetch("/api/v1/analyze", {
                 method: "POST",
                 body: formData,
             });
@@ -25,15 +29,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 const errorMessage = errorData?.detail || `HTTP error! status: ${response.status}`;
                 throw new Error(errorMessage);
             }
+console.log("Received response:", response);
+const results = await response.json();
+console.log("Parsed results:", results);
+resultsDiv.textContent = JSON.stringify(results, null, 2);
 
-            const results = await response.json();
-            resultsDiv.textContent = JSON.stringify(results, null, 2);
 
         } catch (error) {
             console.error("Error analyzing resume:", error);
             resultsDiv.textContent = `An error occurred while analyzing the resume: ${error.message}`;
         } finally {
-            spinner.remove();
+            newSpinner.remove();
         }
     });
 });
