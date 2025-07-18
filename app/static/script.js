@@ -34,7 +34,7 @@ const results = await response.json();
 console.log("Parsed results:", results);
 //resultsDiv.textContent = JSON.stringify(results, null, 2);
 
-resultsDiv.innerHTML = ""; // Clear previous results
+//resultsDiv.innerHTML = ""; // Clear previous results
 
 const analysisResultsDiv = document.createElement("div");
 analysisResultsDiv.className = "analysis-results";
