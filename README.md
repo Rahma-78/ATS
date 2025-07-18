@@ -1,5 +1,8 @@
 :---:
 title: Job Application Tool
+emoji: 🎯
+colorFrom: purple
+colorTo: orange
 sdk: docker
 sdk_version: "latest"
 app_file: app.py
