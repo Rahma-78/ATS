@@ -27,3 +27,5 @@ This is a simple Applicant Tracking System (ATS) that analyzes a resume against 
 3.  **Access the application:**
 
     Open your web browser and navigate to `http://localhost:7860`.
+
+    
