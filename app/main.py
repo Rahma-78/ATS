@@ -30,7 +30,7 @@ logging.basicConfig(
 )
 
 # --- FastAPI App Initialization ---
-root_path = os.environ.get("ROOT_PATH", "")
+root_path = ""
 app = FastAPI(
     title=settings.PROJECT_NAME,
     description=settings.PROJECT_DESCRIPTION,
