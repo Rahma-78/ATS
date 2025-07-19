@@ -10,22 +10,38 @@
 
 <body>
     <div class="container">
-        <h1>ATS Resume Analyzer</h1>
-        <form id="analysis-form" action="/api/v1/analyze" method="post" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="job-description">Job Description</label>
-                <textarea id="job-description" name="job_description" rows="10" required></textarea>
+        <header>
+            <h1>ATS Resume Analyzer</h1>
+            <p>Upload a resume and job description to get a detailed analysis.</p>
+        </header>
+        <main>
+            <form id="analysis-form" action="/api/v1/analyze" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="job-description">Job Description</label>
+                    <textarea id="job-description" name="job_description" rows="10" placeholder="Paste the job description here..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="resume">Resume</label>
+                    <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx,.txt" required>
+                </div>
+                <button type="submit" id="submit-btn">Analyze</button>
+            </form>
+            <div id="loading-spinner" class="hidden">
+                <div class="spinner"></div>
+                <p>Analyzing... this may take a moment.</p>
             </div>
-            <div class="form-group">
-                <label for="resume">Resume</label>
-                <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx,.txt" required>
+            <div id="error-container" class="hidden">
+                <h3>Error</h3>
+                <p id="error-message"></p>
             </div>
-            <button type="submit">Analyze</button>
-        </form>
-        <div id="results-container" class="hidden">
-            <h2>Analysis Results</h2>
-            <pre id="results"></pre>
-        </div>
+            <div id="results-container" class="hidden">
+                <h2>Analysis Results</h2>
+                <div id="results"></div>
+            </div>
+        </main>
+        <footer>
+            <p>Powered by Gemini</p>
+        </footer>
     </div>
     <script src="{{ url_for('static',path='script.js') }}"></script>
 </body>

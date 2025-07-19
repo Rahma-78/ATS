@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-
+/* General Styles */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 2rem;
     background-color: #f0f2f5;
     color: #333;
     display: flex;
@@ -17,7 +16,7 @@ body {
     width: 100%;
     margin: 0 auto;
     background-color: #fff;
-    padding: 40px;
+    padding: 2.5rem;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
@@ -29,18 +28,19 @@ body {
 
 h1 {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 2rem;
     color: #1a73e8;
     font-weight: 700;
 }
 
+/* Form Styles */
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
 }
 
 label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem;
     font-weight: 500;
     color: #5f6368;
 }
@@ -48,7 +48,7 @@ label {
 textarea,
 input[type="file"] {
     width: 100%;
-    padding: 12px;
+    padding: 0.75rem;
     border: 1px solid #dadce0;
     border-radius: 4px;
     box-sizing: border-box;
@@ -65,13 +65,13 @@ input[type="file"]:focus {
 button {
     display: block;
     width: 100%;
-    padding: 12px;
+    padding: 0.75rem;
     background-color: #1a73e8;
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 500;
     transition: background-color 0.3s ease;
 }
@@ -80,13 +80,15 @@ button:hover {
     background-color: #185abc;
 }
 
+/* Utility Classes */
 .hidden {
     display: none;
 }
 
+/* Results Section */
 #results-container {
-    margin-top: 30px;
-    padding: 20px;
+    margin-top: 2rem;
+    padding: 1.5rem;
     background-color: #f8f9fa;
     border: 1px solid #dadce0;
     border-radius: 4px;
@@ -95,17 +97,18 @@ button:hover {
 #results {
     white-space: pre-wrap;
     background-color: #fff;
-    padding: 15px;
+    padding: 1rem;
     border-radius: 4px;
     border: 1px solid #e0e0e0;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Courier New", Courier, monospace;
 }
 
+/* Spinner */
 .spinner-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 1.5rem;
 }
 
 .spinner {
@@ -126,31 +129,32 @@ button:hover {
     }
 }
 
+/* Analysis Results */
 .analysis-results {
-    margin-top: 20px;
-    padding: 20px;
+    margin-top: 1.5rem;
+    padding: 1.5rem;
     border: 1px solid #ddd;
     border-radius: 5px;
     background-color: #f9f9f9;
 }
 
 .match-percentage {
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
     text-align: center;
 }
 
 .match-percentage h3 {
     font-size: 1.5em;
-    color: #4CAF50;
-    margin-bottom: 5px;
+    color: #4caf50;
+    margin-bottom: 0.5rem;
 }
 
 .analysis-results .match-percentage p {
     font-size: 3em;
     font-weight: bold;
-    color: #4CAF50;
+    color: #4caf50;
     background-color: #e8f5e9;
-    padding: 10px;
+    padding: 0.5rem 1rem;
     border-radius: 5px;
     display: inline-block;
 }
@@ -159,42 +163,41 @@ button:hover {
 .analysis-results .weaknesses,
 .analysis-results .candidate-summary,
 .analysis-results .recommendations {
-    margin-bottom: 20px;
-    padding: 15px;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
     border: 1px solid #eee;
     border-radius: 5px;
-
     font-size: 1.2em;
     color: #333;
-    margin-bottom: 10px;
     border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
+    padding-bottom: 1rem;
 }
 
 .analysis-results .strengths ul,
 .analysis-results .weaknesses ul {
     list-style-type: none;
-    margin-left: 0;
-    padding-left: 0;
+    padding-left: 1.5rem;
+}
+
+.analysis-results .strengths li::before,
+.analysis-results .weaknesses li::before {
+    display: inline-block;
+    width: 1em;
+    margin-left: -1.5rem;
+    font-weight: bold;
 }
 
 .analysis-results .strengths li::before {
-    content: "✓"; /* Unicode checkmark */
+    content: "✓";
     color: green;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
 }
 
 .analysis-results .weaknesses li::before {
-    content: "✗"; /* Unicode crossmark */
+    content: "✗";
     color: red;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
 }
 
 .strengths li,
 .weaknesses li {
-    margin-bottom: 5px;
+    margin-bottom: 0.5rem;
 }
