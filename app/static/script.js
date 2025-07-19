@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const loadingSpinner = document.getElementById("loading-spinner");
     const resultsContainer = document.getElementById("results-container");
     const resultsDiv = document.getElementById("results");
-    const  = document.getElementById("errorContainer = document.getElementById("error-container");
-    const errorMessageDiverror-message");
+    const errorContainer = document.getElementById("error-container");
+    const errorMessageDiv = document.getElementById("error-message");
 
     const ui = {
         showLoading: () => {

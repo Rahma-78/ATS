@@ -26,7 +26,7 @@
                 </div>
                 <button type="submit" id="submit-btn">Analyze</button>
             </form>
-            <div id="loading-spinner" class="hidden">
+            <div id="loading-spinner" class="spinner-container hidden">
                 <div class="spinner"></div>
                 <p>Analyzing... this may take a moment.</p>
             </div>
@@ -39,11 +39,9 @@
                 <div id="results"></div>
             </div>
         </main>
-        <footer>
-            <p>Powered by Gemini</p>
-        </footer>
+   
     </div>
-    <script src="{{ url_for('static',path='script.js') }}"></script>
+    <script src="{{ url_for('static',path='script.js') }}?v=1"></script>
 </body>
 
 </html>
