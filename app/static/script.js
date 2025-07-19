@@ -10,12 +10,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const ui = {
         showLoading: () => {
-            loadingSpinner.classList.remove("hidden");
+            if (loadingSpinner) {
+                loadingSpinner.classList.remove("hidden");
+            }
             submitBtn.disabled = true;
             submitBtn.textContent = "Analyzing...";
         },
         hideLoading: () => {
-            loadingSpinner.classList.add("hidden");
+            if (loadingSpinner) {
+                loadingSpinner.classList.add("hidden");
+            }
             submitBtn.disabled = false;
             submitBtn.textContent = "Analyze";
         },
