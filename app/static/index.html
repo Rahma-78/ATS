@@ -19,7 +19,8 @@
             <form id="analysis-form" action="/api/v1/analyze" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="job-description">Job Description</label>
-                    <textarea id="job-description" name="job_description" rows="10" placeholder="Paste the job description here..." required></textarea>
+                    <textarea id="job-description" name="job_description" rows="10"
+                        placeholder="Paste the job description here..." required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="resume">Resume</label>
@@ -27,7 +28,7 @@
                 </div>
                 <button type="submit" id="submit-btn">Analyze</button>
             </form>
-
+            
             <div id="error-container" class="hidden">
                 <h3>Error</h3>
                 <p id="error-message"></p>
@@ -37,7 +38,7 @@
                 <div id="results"></div>
             </div>
         </main>
-   
+
     </div>
 </body>
 
