@@ -56,7 +56,7 @@ templates = Jinja2Templates(directory="app/static")
 # --- Root Endpoint ---
 @app.get("/", response_class=HTMLResponse)
 async def root(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request, "url_for": app.url_path_for})
+    return templates.TemplateResponse("index.html", {"request": request, "url_for": app.url_path_for, "root_path": app.root_path})
 
 
 # --- Analyze Endpoint ---
