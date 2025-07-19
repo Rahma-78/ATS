@@ -72,6 +72,7 @@ if (results.strengths && Array.isArray(results.strengths)) {
             strengthItem.style.listStyleType = "none";
             strengthItem.style.marginLeft = "0";
             strengthItem.style.paddingLeft = "0";
+        strengthsList.appendChild(strengthItem);
     });
 } else {
     const noStrengthsItem = document.createElement("li");
@@ -95,6 +96,7 @@ if (results.weaknesses && Array.isArray(results.weaknesses)) {
             weaknessItem.style.listStyleType = "none";
             weaknessItem.style.marginLeft = "0";
             weaknessItem.style.paddingLeft = "0";
+        weaknessesList.appendChild(weaknessItem);
     });
 } else {
     const noWeaknessesItem = document.createElement("li");
