@@ -30,7 +30,7 @@ logging.basicConfig(
 )
 
 # --- FastAPI App Initialization ---
-root_path = ""
+root_path = "/spaces/Rahma07/ATS"
 app = FastAPI(
     title=settings.PROJECT_NAME,
     description=settings.PROJECT_DESCRIPTION,
