@@ -14,5 +14,7 @@ def get_analyzer() -> ATSAnalyzer:
     """
     return ATSAnalyzer(
         groq_api_key=settings.GROQ_API_KEY,
-        model_name=settings.GROQ_MODEL_NAME
+        model_name=settings.GROQ_MODEL_NAME,
+        temperature=0.0,
+        model_kwargs={"response_format": {"type": "json_object"}},
     )

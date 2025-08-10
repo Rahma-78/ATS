@@ -22,19 +22,26 @@ class ATSAnalyzer:
     """
 
     def __init__(
-        self, groq_api_key: str, model_name: str, temperature: float = 0.0
+        self,
+        groq_api_key: str,
+        model_name: str,
+        temperature: float = 0.0,
+        model_kwargs: Optional[dict] = None,
     ):
         """
         Initializes the analyzer with the Groq LLM and a JSON output parser.
         """
         if not groq_api_key:
             raise ValueError("GROQ_API_KEY cannot be empty.")
-        
+
+        if model_kwargs is None:
+            model_kwargs = {"response_format": {"type": "json_object"}}
+
         self.llm = ChatGroq(
             api_key=SecretStr(groq_api_key),
             model=model_name,
             temperature=temperature,
-            model_kwargs={"response_format": {"type": "json_object"}},
+            model_kwargs=model_kwargs,
         )
         self.parser = JsonOutputParser(pydantic_object=AnalysisResult)
 
