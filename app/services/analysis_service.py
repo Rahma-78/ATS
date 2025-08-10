@@ -116,7 +116,7 @@ class ATSAnalyzer:
             response = chain.invoke(
                 {"resume_text": resume_text_clean, "job_description": job_description_clean}
             )
-            return AnalysisResult(**response)
+            return response
         except LangChainException as e:
             logging.error(f"Error generating structured response from Llama model: {e}")
             return None

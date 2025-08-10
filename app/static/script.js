@@ -75,9 +75,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         fragment.appendChild(createResultCard("Candidate Summary", results.candidate_summary));
         fragment.appendChild(createResultCard("Match Percentage", `${results.match_percentage}%`, 'match-percentage'));
-        fragment.appendChild(createResultCard("Strengths", createList(results.strengths.skills.concat(results.strengths.experience))));
-        fragment.appendChild(createResultCard("Weaknesses", createList(results.weaknesses.skills.concat(results.weaknesses.experience))));
-        fragment.appendChild(createResultCard("Recommendations", createList(results.recommendations.focus_areas.concat(results.recommendations.online_courses))));
+        fragment.appendChild(createResultCard("Strengths", createList(results.strengths || [])));
+        fragment.appendChild(createResultCard("Weaknesses", createList(results.weaknesses || [])));
+        fragment.appendChild(createResultCard("Recommendations", createList(results.recommendations || [])));
 
         return fragment;
     };
