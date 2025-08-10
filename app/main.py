@@ -16,6 +16,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
+from datetime import datetime
 
 from app.dependencies import get_analyzer
 from app.api.schemas import AnalysisResult
@@ -55,7 +56,7 @@ templates = Jinja2Templates(directory="app/static")
 # --- Root Endpoint ---
 @app.get("/", response_class=HTMLResponse)
 async def root(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request, "url_for": app.url_path_for})
+    return templates.TemplateResponse("index.html", {"request": request, "url_for": app.url_path_for, "now": datetime.utcnow})
 
 
 # --- Analyze Endpoint ---
