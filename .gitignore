@@ -7,8 +7,5 @@ __pycache__/
 venv/
 
 
-# Temporary file
 
-GEMINI.md
-!static/
              
